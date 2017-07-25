@@ -123,7 +123,7 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool fPri
     result.push_back(Pair("flags", strprintf("%s%s", blockindex->IsProofOfSprout()? "proof-of-sprout" : "proof-of-work", blockindex->GeneratedSproutModifier()? " sprout-modifier": "")));
     result.push_back(Pair("proofhash", blockindex->hashProof.GetHex()));
     result.push_back(Pair("entropybit", (int)blockindex->GetSproutEntropyBit()));
-    result.push_back(Pair("modifier", strprintf("%016"PRIx64, blockindex->nSproutModifier)));
+    result.push_back(Pair("modifier", strprintf("%016" PRIx64, blockindex->nSproutModifier)));
     result.push_back(Pair("modifierchecksum", strprintf("%08x", blockindex->nSproutModifierChecksum)));
     Array txinfo;
     BOOST_FOREACH (const CTransaction& tx, block.vtx)

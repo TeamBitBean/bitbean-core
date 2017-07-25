@@ -138,7 +138,7 @@ bool ComputeNextSproutModifier(const CBlockIndex* pindexPrev, uint64_t& nSproutM
         return error("ComputeNextSproutModifier: unable to get last modifier");
     if (fDebug)
     {
-        printf("ComputeNextSproutModifier: prev modifier=0x%016"PRIx64" time=%s\n", nSproutModifier, DateTimeStrFormat(nModifierTime).c_str());
+        printf("ComputeNextSproutModifier: prev modifier=0x%016" PRIx64 " time=%s\n", nSproutModifier, DateTimeStrFormat(nModifierTime).c_str());
     }
     if (nModifierTime / nModifierInterval >= pindexPrev->GetBlockTime() / nModifierInterval)
         return true;
@@ -201,7 +201,7 @@ bool ComputeNextSproutModifier(const CBlockIndex* pindexPrev, uint64_t& nSproutM
     }
     if (fDebug)
     {
-        printf("ComputeNextSproutModifier: new modifier=0x%016"PRIx64" time=%s\n", nSproutModifierNew, DateTimeStrFormat(pindexPrev->GetBlockTime()).c_str());
+        printf("ComputeNextSproutModifier: new modifier=0x%016" PRIx64 " time=%s\n", nSproutModifierNew, DateTimeStrFormat(pindexPrev->GetBlockTime()).c_str());
     }
 
     nSproutModifier = nSproutModifierNew;
@@ -296,12 +296,12 @@ bool CheckSproutKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned
     hashProofOfSprout = Hash(ss.begin(), ss.end());
     if (fPrintProofOfSprout)
     {
-        printf("CheckSproutKernelHash() : using modifier 0x%016"PRIx64" at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
+        printf("CheckSproutKernelHash() : using modifier 0x%016" PRIx64 " at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
             nSproutModifier, nSproutModifierHeight,
             DateTimeStrFormat(nSproutModifierTime).c_str(),
             mapBlockIndex[hashBlockFrom]->nHeight,
             DateTimeStrFormat(blockFrom.GetBlockTime()).c_str());
-        printf("CheckSproutKernelHash() : check modifier=0x%016"PRIx64" nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashProof=%s\n",
+        printf("CheckSproutKernelHash() : check modifier=0x%016" PRIx64 " nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashProof=%s\n",
             nSproutModifier,
             nTimeBlockFrom, nTxPrevOffset, txPrev.nTime, prevout.n, nTimeTx,
             hashProofOfSprout.ToString().c_str());
@@ -312,12 +312,12 @@ bool CheckSproutKernelHash(unsigned int nBits, const CBlock& blockFrom, unsigned
         return false;
     if (fDebug && !fPrintProofOfSprout)
     {
-        printf("CheckSproutKernelHash() : using modifier 0x%016"PRIx64" at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
+        printf("CheckSproutKernelHash() : using modifier 0x%016" PRIx64 " at height=%d timestamp=%s for block from height=%d timestamp=%s\n",
             nSproutModifier, nSproutModifierHeight,
             DateTimeStrFormat(nSproutModifierTime).c_str(),
             mapBlockIndex[hashBlockFrom]->nHeight,
             DateTimeStrFormat(blockFrom.GetBlockTime()).c_str());
-        printf("CheckSproutKernelHash() : pass modifier=0x%016"PRIx64" nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashProof=%s\n",
+        printf("CheckSproutKernelHash() : pass modifier=0x%016" PRIx64 " nTimeBlockFrom=%u nTxPrevOffset=%u nTimeTxPrev=%u nPrevout=%u nTimeTx=%u hashProof=%s\n",
             nSproutModifier,
             nTimeBlockFrom, nTxPrevOffset, txPrev.nTime, prevout.n, nTimeTx,
             hashProofOfSprout.ToString().c_str());

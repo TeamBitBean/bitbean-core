@@ -414,7 +414,7 @@ bool CTxDB::LoadBlockIndex()
         // Bitbean: calculate sprout modifier checksum
         pindex->nSproutModifierChecksum = GetSproutModifierChecksum(pindex);
         if (!CheckSproutModifierCheckpoints(pindex->nHeight, pindex->nSproutModifierChecksum))
-            return error("CTxDB::LoadBlockIndex() : Failed sprout modifier checkpoint height=%d, modifier=0x%016"PRIx64, pindex->nHeight, pindex->nSproutModifier);
+            return error("CTxDB::LoadBlockIndex() : Failed sprout modifier checkpoint height=%d, modifier=0x%016" PRIx64, pindex->nHeight, pindex->nSproutModifier);
     }
 
     // Load hashBestChain pointer to end of best chain
